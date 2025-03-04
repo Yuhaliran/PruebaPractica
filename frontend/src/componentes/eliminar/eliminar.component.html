@@ -1,0 +1,12 @@
+<div class="eliminar">
+    <h2>Eliminar Vendedor</h2>
+    <div class="formulario">
+      <label for="vendedorId">Id Vendedor:</label>
+      <input type="text" id="vendedorId" [(ngModel)]="idVendedor" placeholder="Ingresa el Id">
+      <button (click)="eliminarVendedor()">Eliminar Vendedor</button>
+    </div>
+    <div *ngIf="mensaje" class="mensaje">
+      {{ mensaje }}
+    </div>
+  </div>
+  

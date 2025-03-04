@@ -1,0 +1,24 @@
+<div class="buscar">
+  <h2>Buscar Vendedor</h2>
+  <div class="formulario">
+    <label for="id">ID Vendedor:</label>
+    <input type="text" id="id" [(ngModel)]="idVendedor" placeholder="Ingresa el ID">
+    <button (click)="buscarVendedor()">Buscar</button>
+  </div>
+
+  <div *ngIf="mensaje" class="mensaje">
+    {{ mensaje }}
+  </div>
+
+  <div *ngIf="vendedor">
+    <h3>Detalles del Vendedor</h3>
+    <p><strong>ID:</strong> {{ vendedor.idVendedor }}</p>
+    <p><strong>Nombre:</strong> {{ vendedor.nombre }}</p>
+    <p><strong>Apellido:</strong> {{ vendedor.apellido }}</p>
+    <p><strong>Direccion:</strong> {{ vendedor.direccion }}</p>
+    <p><strong>Edad:</strong> {{ vendedor.edad }}</p>
+    <p><strong>Profesion:</strong> {{ vendedor.profesion }}</p>
+    <p><strong>Estado Civil:</strong> {{ vendedor.estadocivil }}</p>
+    <button (click)="mostrarNivelRiesgo(vendedor.edad)">Nivel de riesgo</button>
+  </div>
+</div>

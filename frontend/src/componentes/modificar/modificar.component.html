@@ -1,0 +1,65 @@
+<div class="modificar">
+  <h2>Modificar Vendedor</h2>
+  
+  <div class="busqueda">
+    <label for="idInput">ID Vendedor:</label>
+    <input type="text" id="idInput" [(ngModel)]="idVendedor" placeholder="Ingresa el ID">
+    <button (click)="buscarVendedor()">Buscar</button>
+  </div>
+
+  <div *ngIf="mensaje" class="mensaje">
+    {{ mensaje }}
+  </div>
+
+  <div *ngIf="vendedor">
+    <h3>Editar datos del Vendedor</h3>
+    <form #modificarForm="ngForm" (ngSubmit)="actualizarVendedor()" novalidate>
+      <div>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" [(ngModel)]="vendedor.nombre" 
+               required placeholder="Ingresa el nombre">
+        <div *ngIf="modificarForm.submitted && modificarForm.controls['nombre']?.invalid">
+          <small class="error">El nombre es obligatorio</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" [(ngModel)]="vendedor.apellido" 
+               required placeholder="Ingresa el apellido">
+        <div *ngIf="modificarForm.submitted && modificarForm.controls['apellido']?.invalid">
+          <small class="error">El apellido es obligatorio</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="edad">Edad:</label>
+        <input type="number" id="edad" name="edad" [(ngModel)]="vendedor.edad" 
+               required min="1" placeholder="Ingresa la edad">
+        <div *ngIf="modificarForm.submitted && (modificarForm.controls['edad']?.errors?.['required'] || modificarForm.controls['edad']?.errors?.['min'])">
+          <small class="error">La edad es obligatoria y debe ser mayor a 0</small>
+        </div>
+      </div>
+
+      <div>
+        <label for="direccion">Direccion:</label>
+        <input type="text" id="direccion" name="direccion" [(ngModel)]="vendedor.direccion" 
+               placeholder="Ingresa la direccion">
+      </div>
+
+      <div>
+        <label for="profesion">Profesion:</label>
+        <input type="text" id="profesion" name="profesion" [(ngModel)]="vendedor.profesion" 
+               placeholder="Ingresa la profesion">
+      </div>
+
+      <div>
+        <label for="estadocivil">Estado Civil:</label>
+        <input type="text" id="estadocivil" name="estadocivil" [(ngModel)]="vendedor.estadocivil" 
+               placeholder="Ingresa el estado civil">
+      </div>
+
+      <button type="submit" [disabled]="modificarForm.invalid">Actualizar Vendedor</button>
+    </form>
+  </div>
+</div>
