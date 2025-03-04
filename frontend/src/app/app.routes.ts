@@ -1,6 +1,4 @@
 import { Routes } from '@angular/router';
-import { provideRouter, withComponentInputBinding } from '@angular/router';
-import { importProvidersFrom } from '@angular/core';
 import { BuscarComponent } from '../componentes/buscar/buscar.component';
 import { EliminarComponent } from '../componentes/eliminar/eliminar.component';
 import { ModificarComponent } from '../componentes/modificar/modificar.component';

@@ -1,0 +1,38 @@
+@use "sass:color";
+
+
+$celeste: #87CEFA;       
+$blanco: #FFFFFF;        
+
+.negro {
+    color: #000;
+ }
+  
+
+ .blanco {
+    color: #ffffff;
+ }
+
+$background-gradient: linear-gradient(135deg, $celeste, $blanco, $celeste);
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: $background-gradient;
+  color: #000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $celeste;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+p {
+  line-height: 1.6;
+}
+
+button:hover, .mat-button:hover, .mat-raised-button:hover {
+  background-color: color.adjust($celeste, $lightness: -10%);
+}
